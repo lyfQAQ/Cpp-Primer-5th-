@@ -18,7 +18,7 @@ public:
 
     Sales_data &combine(const Sales_data &rhe)
     {
-        units_sold += rhe.units_sole;
+        units_sold += rhe.units_sold;
         saleprice = (saleprice * units_sold + rhe.saleprice * rhe.units_sold);
         if (sellingprice != 0)
         {
