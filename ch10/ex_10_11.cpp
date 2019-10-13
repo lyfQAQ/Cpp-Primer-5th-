@@ -31,7 +31,6 @@ void elimDups(vector<string> &v)
     outputWords(v);
 }
 
-
 int main(int argc, char *argv[])
 {
     ifstream in(argv[1]);
@@ -44,7 +43,7 @@ int main(int argc, char *argv[])
     vector<string> words;
     string word;
     while (in >> word)
-        words.pop_back(word);
+        words.push_back(word);
     elimDups(words);
 
     return 0;
