@@ -6,13 +6,13 @@
 
 using namespace std;
 
-void outputWords(vector<string>& v)
+void outputWords(vector<string> &v)
 {
-	for_each(v.begin(), v.end(), [](string& str) { cout << str << ' '; });
+	for_each(v.cbegin(), v.cend(), [](string &str) { cout << str << ' '; });
 	cout << endl;
 }
 
-void elimDups(vector<string>& v)
+void elimDups(vector<string> &v)
 {
 	outputWords(v);
 	sort(v.begin(), v.end());
@@ -23,17 +23,18 @@ void elimDups(vector<string>& v)
 	v.erase(endUnique, v.end());
 }
 
-void biggies(vector<string>& v, size_t sz)
+void biggies(vector<string> &v, size_t sz)
 {
 	elimDups(v);
-	stable_sort(v.begin(), v.end(), [](const string& a, const string& b) { return a.size() < b.size(); });
+	stable_sort(v.begin(), v.end(), [](const string &a, const string &b) { return a.size() < b.size(); });
 
-	auto wc = find_if(v.begin(), v.end(), [sz](const string& s) { return s.size() >= sz; });
+	auto wc = find_if(v.begin(), v.end(), [sz](const string &s) { return s.size() >= sz; });
 	auto count = v.end() - wc;
-	for_each(wc, v.end(), [](const string& s) { cout << s << ' '; });
+	for_each(wc, v.end(), [](const string &s) { cout << s << ' '; });
 	cout << endl;
 }
-int main(int argc, char* argv[])
+
+int main(int argc, char *argv[])
 {
 	ifstream in(argv[1]);
 	if (!in)
@@ -46,7 +47,7 @@ int main(int argc, char* argv[])
 	string word;
 	while (in >> word)
 		words.push_back(word);
-	biggies(words,5);
+	biggies(words);
 
 	return 0;
 }
