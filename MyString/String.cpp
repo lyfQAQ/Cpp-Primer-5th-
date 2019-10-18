@@ -1,6 +1,5 @@
-
 #include <iostream>
-#include<ostream>
+#include <ostream>
 #include "String.h"
 
 using namespace std;
@@ -29,9 +28,18 @@ inline String::String(const String &str)
     m_data = new char[strlen(str.m_data) + 1];
     strcpy(m_data, str.m_data);
 }
-
-ostream& operator<<(ostream &os,const String &str)
+//const String 只调用const 版本, 非const String 只调用非const 版本
+inline String::char operator[](std::size_t pos) const
 {
-    os<<str.get_c_str();
+    return m_data[pos];
+}
+
+inline String::char &operator[](std::size_t pos)
+{
+    return m_data[pos];
+}
+ostream &operator<<(ostream &os, const String &str)
+{
+    os << str.get_c_str();
     return os;
 }
