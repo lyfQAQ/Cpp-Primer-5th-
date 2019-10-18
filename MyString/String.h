@@ -1,6 +1,7 @@
 #ifndef _STRING_H_
 #define _STRING_H_
-#include<string.h>
+#include <string.h>
+
 class String
 {
 public:
@@ -15,6 +16,10 @@ public:
         strcpy(m_data, str.m_data);
         return *this;
     }
+    char operator[](std::size_t pos) const;
+
+    char &operator[](std::size_t pos);
+
     ~String();
     char *get_c_str() const { return m_data; }
 
