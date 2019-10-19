@@ -1,5 +1,5 @@
 #include <iostream>
-#include "MyNewDelete.h"
+#include "ex_12_2.h"
 
 using namespace std;
 
