@@ -10,6 +10,7 @@ public:
     using size_type = std::vector<std::string>::size_type;
     StrBlob();
     //使用可变形参列表
+    //未使用explicit的initializer_list,可以在需要StrBlob对象时使用列表进行隐式类型转换，如作为函数的参数
     StrBlob(std::initializer_list<std::string> il);
     size_type size() const { return data->size(); }
     bool empty() const { return data->empty(); }
