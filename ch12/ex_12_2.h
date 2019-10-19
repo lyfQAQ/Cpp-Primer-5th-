@@ -2,7 +2,7 @@
 #include <memory> //share_ptr,unique_ptr
 #include <string>
 
-//Strblob类通过share_ptr实现类对象共享底层数据
+//Strblob类通过shared_ptr实现类对象共享底层数据
 //委托vector完成部分操作
 class StrBlob
 {
