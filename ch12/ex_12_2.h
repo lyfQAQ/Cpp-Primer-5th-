@@ -6,6 +6,10 @@
 //委托vector完成部分操作
 class StrBlob
 {
+    friend class StrBlobPtr;
+    StrBlobPtr begin() {return StrBlobPtr(*this);}
+    StrBlobPtr end() {return StrBlobPtr(*this,data->size());}
+    
 public:
     using size_type = std::vector<std::string>::size_type;
     StrBlob();
